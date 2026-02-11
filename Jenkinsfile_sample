@@ -5,55 +5,55 @@ pipeline{
     stages{
         
         stage("build"){
-            steps{
+            Parallel{
                 echo("build the project")
             }
         }
         
         stage("Run Unit test"){
-            steps{
+            Parallel{
                 echo("run UTs")
             }
         }
         
         stage("Run Integration test"){
-            steps{
+            Parallel{
                 echo("run ITs")
             }
         }
         
         stage("Deploy to dev"){
-            steps{
+            Parallel{
                 echo("deploy to dev")
             }
         }
         
         stage("Deploy to QA"){
-            steps{
+            Parallel{
                 echo("deploy to QA")
             }
         }
         
         stage("Run regression test cases on QA"){
-            steps{
+            Parallel{
                 echo("Run test cases on QA")
             }
         }
         
         stage("Deploy to stage"){
-            steps{
+            Parallel{
                 echo("deploy to stage")
             }
         }
         
          stage("Run sanity test cases on Stage"){
-            steps{
+            Parallel{
                 echo("Run sanity test cases on Stage")
             }
         }
         
         stage("Deploy to PROD"){
-            steps{
+            Parallel{
                 echo("deploy to PROD")
             }
         }

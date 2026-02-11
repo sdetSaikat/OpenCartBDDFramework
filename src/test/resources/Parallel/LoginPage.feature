@@ -1,6 +1,6 @@
 Feature: Login Page Feature
 
-  @login @smoke @regression @naveen
+  @login @smoke @regression @Saikat
   Scenario: Check login page title
     Given the user is on the login page
     When the user fetches the page title
@@ -12,7 +12,7 @@ Feature: Login Page Feature
     Given the user is on the login page
     When the user checks the page URL
     Then the URL should contain "account/login"
-
+#
   @login @smoke @regression
   Scenario: Check forgot password link existence
     Given the user is on the login page
@@ -22,7 +22,7 @@ Feature: Login Page Feature
   @login @smoke @regression
   Scenario: Login to application
     Given the user is on the login page
-    When the user logs in with username "septbatch2024@open.com" and password "Selenium@12345"
+    When the user logs in with username "s.maity.gcect@gmail.com" and password "Mahadev1234#"
     Then the user should be redirected to the accounts page with title "My Account"
 
 #  @wip @login
