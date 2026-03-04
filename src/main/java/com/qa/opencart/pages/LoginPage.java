@@ -20,6 +20,8 @@ public class LoginPage {
     private By loginBtn = By.xpath("//input[@value='Login']");
     private By forgotPwdLink = By.linkText("Forgotten Password");
     private By registerLink = By.linkText("Register");
+    private By logoutLink = By.linkText("Logout");
+    private By firstName = By.id("input-firstname");
 
     // 2. public const.. of the page:
     public LoginPage(WebDriver driver) {
@@ -49,12 +51,14 @@ public class LoginPage {
         eleUtil.doSendKeys(emailId, username, TimeUtil.DEFAULT_MEDIUM_TIME);
         eleUtil.doSendKeys(password, pwd);
         eleUtil.doClick(loginBtn);
+        eleUtil.waitForElementVisible(logoutLink,5);
         return new AccountsPage(driver);
 
     }
 
     public RegisterPage navigateToRegisterPage() {
         eleUtil.doClick(registerLink, TimeUtil.DEFAULT_TIME);
+        eleUtil.waitForElementVisible(firstName,5);
         return new RegisterPage(driver);
     }
 

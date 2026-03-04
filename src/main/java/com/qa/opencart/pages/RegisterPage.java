@@ -33,6 +33,7 @@ public class RegisterPage {
     private By successMessg = By.cssSelector("div#content h1");
     private By logoutLink = By.linkText("Logout");
     private By registerLink = By.linkText("Register");
+    private By continuebtn =By.linkText("Continue");
 
     public boolean userRegister(String firstName, String lastName,
                                 String email, String telephone, String password,
@@ -53,6 +54,7 @@ public class RegisterPage {
 
         eleUtil.doClick(agreeCheckBox);
         eleUtil.doClick(continueButton);
+        eleUtil.waitForElementVisible(logoutLink,5);
 
         String successMesg = eleUtil.waitForElementVisible(successMessg, TimeUtil.DEFAULT_MEDIUM_TIME).getText();
 
@@ -60,6 +62,7 @@ public class RegisterPage {
 
         if (successMesg.contains(AppConstants.USER_REGISTER_SUCCESS_MESSG)) {
             eleUtil.doClick(logoutLink);
+            eleUtil.waitForElementVisible(continuebtn,5);
             eleUtil.doClick(registerLink);
             return true;
         } else {

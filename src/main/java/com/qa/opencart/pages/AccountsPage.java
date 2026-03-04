@@ -27,6 +27,7 @@ public class AccountsPage {
     private By headers = By.cssSelector("div#content h2");
     private By search = By.name("search");
     private By searchIcon = By.cssSelector("div#search button");
+    private  By matchedProducts = By.cssSelector("#content h2");
 
     public String getAccPageTitle() {
         String title = eleUtil.waitForTitleToBe(AppConstants.ACCOUNTS_PAGE_TITLE, TimeUtil.DEFAULT_TIME);
@@ -70,6 +71,7 @@ public class AccountsPage {
         if (isSearchExist()) {
             eleUtil.doSendKeys(search, searchKey);
             eleUtil.doClick(searchIcon);
+            eleUtil.waitForElementVisible(matchedProducts,5);
             return new SearchResultsPage(driver);
         } else {
             System.out.println("search field is not present on the page");

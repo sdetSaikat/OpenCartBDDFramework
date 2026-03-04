@@ -15,6 +15,7 @@ public class SearchResultsPage {
     private ElementUtil eleUtil;
 
     private By searchResult = By.cssSelector("div.product-thumb");
+    private By addToCart = By.xpath("//button[text()='Add to Cart']");
 
     public SearchResultsPage(WebDriver driver) {
         this.driver = driver;
@@ -32,6 +33,7 @@ public class SearchResultsPage {
 
     public ProductInfoPage selectProduct(String productName) {
         eleUtil.doClick(By.linkText(productName), TimeUtil.DEFAULT_TIME);
+        eleUtil.waitForElementVisible(addToCart,5);
         return new ProductInfoPage(driver);
     }
 
