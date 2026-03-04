@@ -17,7 +17,8 @@
                     "html:target/cucumber-reports/cucumber.html",
                     "io.qameta.allure.cucumber7jvm.AllureCucumber7Jvm",
                     "com.aventstack.chaintest.plugins.ChainTestCucumberListener:"
-            }
+            },
+            monochrome = true
     )
     public class TestRunner extends AbstractTestNGCucumberTests {
 //    //    TheadLocal<String> br
